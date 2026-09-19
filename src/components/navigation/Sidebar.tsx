@@ -11,6 +11,7 @@ import {
   HelpCircle,
   Shield,
   Radio,
+  ChevronLeft,
   ChevronRight,
   Phone,
   Share2
@@ -62,6 +63,7 @@ export interface SidebarProps {
   onSelect?: (id: NavItemId) => void;
   className?: string;
   compact?: boolean;
+  onToggleCompact?: () => void;
   systemStatus?: 'operational' | 'alert' | 'processing';
 }
 
@@ -70,13 +72,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onSelect,
   className = '',
   compact = false,
+  onToggleCompact,
   systemStatus = 'operational',
 }) => {
   return (
     <aside
       id="netrax-sidebar"
       style={{ width: compact ? '72px' : '240px' }}
-      className={`h-full bg-[#0F151C] border-r border-[#26313D] flex flex-col justify-between select-none transition-all duration-200 shrink-0 ${className}`}
+      className={`h-full bg-[#0F151C] border-r border-[#26313D] flex flex-col justify-between select-none transition-all duration-200 shrink-0 relative ${className}`}
     >
       {/* Brand Header */}
       <div>
@@ -119,6 +122,18 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 />
               </span>
             </div>
+          )}
+
+          {onToggleCompact && (
+            <button
+              type="button"
+              onClick={onToggleCompact}
+              aria-label={compact ? 'Expand sidebar' : 'Collapse sidebar'}
+              title={compact ? 'Expand sidebar' : 'Collapse sidebar'}
+              className="absolute right-[-13px] top-5 z-10 w-6 h-6 rounded-full bg-[#151D26] border border-[#26313D] text-[#94A3B8] flex items-center justify-center shadow-[0_2px_8px_rgba(0,0,0,0.35)] transition-colors hover:text-[#2DD4FF] hover:border-[#2DD4FF]/60"
+            >
+              {compact ? <ChevronRight className="w-3.5 h-3.5" /> : <ChevronLeft className="w-3.5 h-3.5" />}
+            </button>
           )}
         </div>
 

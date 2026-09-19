@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Sidebar, NavItemId } from '../navigation/Sidebar';
 import { AppHeader } from './AppHeader';
 
@@ -29,12 +29,16 @@ export const AppShell: React.FC<AppShellProps> = ({
   onNavigateSearchResult,
   children,
 }) => {
+  const [isSidebarCompact, setIsSidebarCompact] = useState(false);
+
   return (
     <div className="min-h-screen bg-[#0B0F14] text-[#F8FAFC] flex flex-row antialiased select-none font-sans overflow-x-hidden">
       {/* 240px Fixed Left Sidebar from Phase 1 */}
       <Sidebar
         activeId={activeNavId}
         onSelect={onSelectNav}
+        compact={isSidebarCompact}
+        onToggleCompact={() => setIsSidebarCompact((isCompact) => !isCompact)}
         systemStatus="operational"
         className="shrink-0"
       />
