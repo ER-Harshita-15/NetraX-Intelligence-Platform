@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --color-netrax-bg: #0B0F14;
+  --color-netrax-secondary: #0F151C;
+  --color-netrax-card: #111820;
+  --color-netrax-elevated: #151D26;
+  --color-netrax-border: #26313D;
+  --color-netrax-primary: #F8FAFC;
+  --color-netrax-text-secondary: #94A3B8;
+  --color-netrax-muted: #64748B;
+  --color-netrax-accent: #2DD4FF;
+  --color-netrax-success: #22C55E;
+  --color-netrax-warning: #F59E0B;
+  --color-netrax-danger: #EF4444;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #0B0F14;
+  color: #F8FAFC;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar for high-tech aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0F14;
+}
+::-webkit-scrollbar-thumb {
+  background: #26313D;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3B4B5C;
+}
+
+/* Subtle surveillance scanline effect */
+.cctv-scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}

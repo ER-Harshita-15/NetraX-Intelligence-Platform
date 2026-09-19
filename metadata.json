@@ -1,0 +1,6 @@
+{
+  "name": "NETRAX Design System",
+  "description": "Unified AI-powered investigation & intelligence platform: FIR & legal document OCR, cellular CDR analysis, criminal syndicate link analysis, CCTV optical tracking, and authenticated case dossiers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
